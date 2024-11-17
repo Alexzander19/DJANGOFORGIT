@@ -3,16 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Заголовки</title>
+    <title>Главная мои блоги</title>
 </head>
 <body>
-    <h1> Здесь заголовки блогов</h1>
+    <h1> Привет! Это сайт знаменитого блогГгера.</h1>
 
     <ul>
-        {% for title in latest_question_list %}
-            <li>{{ title.title }}</li>
-        {% endfor %}
-        </ul>
-    
+            <li> <a  href= "admin/blog" > Редактировать блоги</a> </li>
+            <li> <a  href= "{% url 'title' %}" > Просмотреть блоги</a> </li>
+
+            
+       
+    </ul>
+       
 </body>
 </html>

@@ -6,8 +6,9 @@ urlpatterns = [
     path("", views.index, name="index"),
 
      # ex: /blog/5/
-    path("<int:question_id>/", views.title, name="title"),
+    path("title/", views.title, name="title"),
     # ex: /blog/5/results/
-    path("<int:question_id>/results/", views.results, name="results"),
+    # path("title/<int:question_id>", views.content_blog, name="content_blog"),
+    path("title/content_blog/<int:blog_id>", views.content_blog, name="content_blog")
    
 ]

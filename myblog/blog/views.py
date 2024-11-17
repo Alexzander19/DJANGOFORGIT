@@ -7,19 +7,24 @@ from .models import Post
 
 
 def index(request):
-    return HttpResponse("Привет! Это приложение blog.")
+    # return HttpResponse("Привет! Это приложение blog.")
     #  context = {"latest_question_list": 0}
-    #  return render(request, 'index.html', context)
+    return render(request, 'index.html')
 
-def title(request, question_id):
+def title(request):
     # return HttpResponse("Вы смотрите заголовки блогов %s." % question_id)
-    latest_question_list = Post.objects.order_by("-published_date")[:5]
-    context = {"latest_question_list": latest_question_list}
-    return render(request, "index.html", context)
+    blog_list = Post.objects.order_by("-published_date")[:5]
+    context = {"blog_list": blog_list}
+    
+    return render(request, "list_of_blogs.html", context)
 
 
-def results(request, question_id):
-    response = "Высмотрите каждый блог по отдельности %s."
-    return HttpResponse(response % question_id)
+def content_blog(request, blog_id):
+    # response = "Вы смотрите каждый блог по отдельности %s."
+    one_blog = Post.objects.get(id = blog_id)
+    context = {"one_blog": one_blog}
+   
+    # return HttpResponse(response % blog_id)
+    return render(request, "oneblog.html", context)   
 
 
